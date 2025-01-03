@@ -7,9 +7,25 @@ class VehicleMapPage extends StatelessWidget {
   VehicleMapPage({super.key});
 
   final VehicleController vehicleController = Get.put(VehicleController());
+  BitmapDescriptor? _customIcon;
+
+  /// Load custom marker from assets
+  Future<void> _loadCustomMarker() async {
+    try {
+      final BitmapDescriptor customIcon = await BitmapDescriptor.asset(
+        const ImageConfiguration(size: Size(35, 35)), // Adjust marker size
+        'assets/marker.png',
+      );
+
+      _customIcon = customIcon;
+    } catch (e) {
+      debugPrint("Error loading custom marker: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    _loadCustomMarker();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Real-time Vehicle Tracking'),
@@ -22,7 +38,7 @@ class VehicleMapPage extends StatelessWidget {
 
           return GoogleMap(
             initialCameraPosition: const CameraPosition(
-              target: LatLng(28.503962, 77.301826), // Default location
+              target: LatLng(28.699774, 77.138596), // Default location
               zoom: 12,
             ),
             markers:
@@ -39,7 +55,7 @@ class VehicleMapPage extends StatelessWidget {
                 markerId: MarkerId(entry.key),
                 position: LatLng(vehicle.latitude, vehicle.longitude),
                 infoWindow: InfoWindow(title: vehicle.name),
-                icon: BitmapDescriptor.defaultMarker,
+                icon: _customIcon ?? BitmapDescriptor.defaultMarker,
               );
             }).toSet(),
             // },
