@@ -22,7 +22,7 @@ class VehicleMapPage extends StatelessWidget {
 
           return GoogleMap(
             initialCameraPosition: const CameraPosition(
-              target: LatLng(28.699774, 77.138596), // Default location
+              target: LatLng(28.503962, 77.301826), // Default location
               zoom: 12,
             ),
             markers:
