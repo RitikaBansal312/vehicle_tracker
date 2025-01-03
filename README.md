@@ -7,8 +7,6 @@ Real-time vehicle tracking application built with **Flutter**, integrated with *
 ## 📋 **Features**
 - 📍 **Real-Time Vehicle Location Tracking**: Displays live vehicle locations on an interactive map.
 - 🔄 **Live Updates**: Automatic updates without manual screen refresh.
-- 🔑 **Firebase Authentication**: Secure login and user management.
-- 🔔 **Firebase Notifications**: Real-time alerts and notifications.
 - 🗺️ **Custom Map Markers**: Display vehicle-specific icons and details.
 
 ---
@@ -28,7 +26,6 @@ lib/
 ├── models/           # Data Models
 ├── views/            # UI Screens
 ├── services/         # Firebase and Backend Services
-├── utils/            # Utility Functions and Constants
 ├── main.dart         # Entry Point
 ```
 
@@ -66,12 +63,22 @@ lib/
 ## ⚙️ **Firebase Realtime Database Structure**
 ```json
 {
-  "vehicles": {
-    "vehicle_id": {
-      "name": "Vehicle Name",
-      "latitude": 12.3456,
-      "longitude": 78.9012,
-      "icon": "icon_url"
+  "Vehicles": {
+    "CarOne": {
+      "coordinate": {
+        "latitude": 12.971598,
+        "longitude": 77.594566
+      },
+      "icon": "https://console.firebase.google.com/project/test-counter-app-b2a6d/database/test-counter-app-b2a6d-default-rtdb/data/~2FVehicles",
+      "name": "BMW 320"
+    },
+    "CarTwo": {
+      "coordinate": {
+        "latitude": 12.971598,
+        "longitude": 77.594566
+      },
+      "icon": "https://console.firebase.google.com/project/test-counter-app-b2a6d/database/test-counter-app-b2a6d-default-rtdb/data/~2FVehicles",
+      "name": "Honda City"
     }
   }
 }
@@ -97,7 +104,7 @@ This project is licensed under the **MIT License**.
 
 ## 📬 **Contact**
 - **Developer:** Ritika Bansal
-- **Email:** [Your Email Address]
+- **Email:** [ritikabansal5678@gmail.com]
 - **GitHub:** [https://github.com/RitikaBansal312](https://github.com/RitikaBansal312)
 
 Happy Tracking! 🚀🌍
